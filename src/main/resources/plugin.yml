@@ -1,0 +1,11 @@
+name: ${project.name}
+version: ${project.version}
+author: Haileykins
+description: Simple Preemtive Bad Username Handling
+main: me.haileykins.hllockdown.HLLockdown
+
+commands:
+  bouncer:
+    description: Main Command
+  lockdown:
+    description: Locks Down The Server

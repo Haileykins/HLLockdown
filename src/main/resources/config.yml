@@ -1,0 +1,14 @@
+Prefix: '&c[&8Bouncer&c]&f'
+# Lockdown Notify Type Tells The Plugin What Players If Any To Announce The Lockdown To
+# 0 - All Players Online
+# 1 - Only Players With hllockdown.lockdown.notify (Great For Staff)
+# 2 - No One
+Lockdown-Notify-Type: 0
+Messages:
+  Unknown-Command: '&cUnknown Command!'
+  No-Permission: "&cYou don't have permission to do this!"
+  Disconnect-Message: 'Your Username Is Inappropriate, Please Change It And Try Joining Again'
+  Reloaded-Message: '&2Config File Reloaded'
+  Lockdown-Message: 'The Server Is Under Lockdown, Try Again Later'
+  Lockdown-Confirm-Message: 'Server {status}'
+  Lockdown-Notify-Message: '{sender} {status} The Server'
