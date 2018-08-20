@@ -30,10 +30,8 @@ public class LockdownCommand implements CommandExecutor {
 
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("help")) {
-                sender.sendMessage(cfgUtils.colorize("&aRun /lockdown without any arguments to lock the server"));
-                sender.sendMessage(cfgUtils.colorize("&aand display the default message on a join attempt."));
-                sender.sendMessage(cfgUtils.colorize("&aRun /lockdown (message) to display a custom message on a join"));
-                sender.sendMessage(cfgUtils.colorize("&aattempt."));
+                sender.sendMessage(cfgUtils.colorize("&6/lockdown - &8Locks the server with default message"));
+                sender.sendMessage(cfgUtils.colorize("&6/lockdown (message) - &8Locks the server with custom message"));
                 return true;
             }
 
