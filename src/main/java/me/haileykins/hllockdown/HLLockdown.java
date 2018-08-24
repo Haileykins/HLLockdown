@@ -25,5 +25,6 @@ public class HLLockdown extends JavaPlugin {
 
         // Register Commands
         getCommand("lockdown").setExecutor(new LockdownCommand(cfgUtils));
+
     }
 }

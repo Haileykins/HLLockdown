@@ -6,9 +6,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ConfigUtils {
 
     private HLLockdown plugin;
@@ -21,26 +18,17 @@ public class ConfigUtils {
         return ChatColor.translateAlternateColorCodes('&', message);
     }
 
-
-    public boolean enabled = true;
     public boolean lockdown = false;
     public boolean customLockdown = false;
     public String customLDMsg;
-    public List<String> banned = new ArrayList<>();
     public String prefix;
-    public String disconnectMsg;
-    public String reloadMsg;
-    public String addedWordMsg;
-    public String removedWordMsg;
-    public String specifyWord;
+    private String reloadMsg;
     public String unknownCommand;
     public String noPerms;
     public String lockdownMsg;
     private String lockdownConfirmMsg;
     private int lockdownNotifyType;
     private String lockdownNotifyMsg;
-    private String alreadyExists;
-    private String doesntExist;
 
     public void loadConfig() {
         plugin.saveDefaultConfig();
@@ -51,7 +39,6 @@ public class ConfigUtils {
         prefix = config.getString("Prefix");
         lockdownNotifyType = config.getInt("Lockdown-Notify-Type");
 
-        disconnectMsg = messages.getString("Disconnect-Message");
         reloadMsg = messages.getString("Reloaded-Message");
         unknownCommand = messages.getString("Unknown-Command");
         noPerms = messages.getString("No-Permission");
@@ -67,13 +54,17 @@ public class ConfigUtils {
         sender.sendMessage(colorize(prefix + " " + reloadMsg));
     }
 
-    public void toggleLockdown(CommandSender sender) {
+    public void toggleLockdown(CommandSender sender, String message) {
         lockdown = !lockdown;
+
+        customLockdown = message != null;
+
+        customLDMsg = message;
         String status;
+
         if (!lockdown) {
             status = "Unlocked";
             sender.sendMessage(colorize(prefix + " " + lockdownConfirmMsg.replace("{status}", status)));
-            customLockdown = !customLockdown;
         } else {
             status = "Locked";
             sender.sendMessage(colorize(prefix + " " + lockdownConfirmMsg.replace("{status}", status)));
@@ -88,37 +79,7 @@ public class ConfigUtils {
             case 1:
                 plugin.getServer().broadcast(lockdownNotifyMsg
                         .replace("{sender}", sender.getName()
-                                .replace("{status}", status)), "hllockdown.lockdown.notify");
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void toggleLockdown(CommandSender sender, String message) {
-        lockdown = !lockdown;
-        customLockdown = !customLockdown;
-        String status;
-        if (!lockdown) {
-            status = "Unlocked";
-            sender.sendMessage(colorize(prefix + " " + lockdownConfirmMsg.replace("{status}", status)));
-            customLockdown = !customLockdown;
-        } else {
-            status = "Locked";
-            sender.sendMessage(colorize(prefix + " " + lockdownConfirmMsg.replace("{status}", status)));
-            customLDMsg = message;
-        }
-
-        switch (lockdownNotifyType) {
-            case 0:
-                    plugin.getServer().broadcastMessage(colorize(lockdownNotifyMsg
-                            .replace("{sender}", sender.getName())
-                            .replace("{status}", status)));
-                break;
-            case 1:
-                plugin.getServer().broadcast(lockdownNotifyMsg
-                        .replace("{sender}", sender.getName()
-                        .replace("{status}", status)), "hllockdown.lockdown.notify");
+                                .replace("{status}", status)), "hllockdown.notify");
                 break;
             default:
                 break;

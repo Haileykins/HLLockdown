@@ -7,7 +7,6 @@ Lockdown-Notify-Type: 0
 Messages:
   Unknown-Command: '&cUnknown Command!'
   No-Permission: "&cYou don't have permission to do this!"
-  Disconnect-Message: 'Your Username Is Inappropriate, Please Change It And Try Joining Again'
   Reloaded-Message: '&2Config File Reloaded'
   Lockdown-Message: 'The Server Is Under Lockdown, Try Again Later'
   Lockdown-Confirm-Message: 'Server {status}'

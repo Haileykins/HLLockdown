@@ -24,7 +24,7 @@ public class LockdownCommand implements CommandExecutor {
         }
 
         if (args.length == 0) {
-            cfgUtils.toggleLockdown(sender);
+            cfgUtils.toggleLockdown(sender, null);
             return true;
         }
 
@@ -37,7 +37,11 @@ public class LockdownCommand implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("reload")) {
                 cfgUtils.reloadConfig(sender);
+                return true;
             }
+
+            sender.sendMessage(cfgUtils.colorize(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
+            return true;
         }
 
         List<String> incoming = Arrays.asList(args).subList(0, args.length);
