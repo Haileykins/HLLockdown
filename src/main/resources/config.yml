@@ -1,4 +1,4 @@
-Prefix: '&c[&8Bouncer&c]&f'
+Prefix: '&c[&8Lockdown&c]&f'
 # Lockdown Notify Type Tells The Plugin What Players If Any To Announce The Lockdown To
 # 0 - All Players Online
 # 1 - Only Players With hllockdown.lockdown.notify (Great For Staff)
