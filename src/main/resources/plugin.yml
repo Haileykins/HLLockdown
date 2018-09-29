@@ -1,7 +1,7 @@
 name: ${project.name}
 version: ${project.version}
 author: Haileykins
-description: Simple Preemtive Bad Username Handling
+description: Simple Server Security In One Command
 main: me.haileykins.hllockdown.HLLockdown
 
 commands:
